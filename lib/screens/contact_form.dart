@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../models/class.dart';
 
-
 class ContactForm extends StatefulWidget {
   const ContactForm({Key? key}) : super(key: key);
 
@@ -11,9 +10,9 @@ class ContactForm extends StatefulWidget {
 }
 
 class _ContactFormState extends State<ContactForm> {
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _accountNumberController =
-  TextEditingController();
+  final TextEditingController _codProduto = TextEditingController();
+  final TextEditingController _descProduto = TextEditingController();
+  final TextEditingController _qdtProduto = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +25,21 @@ class _ContactFormState extends State<ContactForm> {
         child: Column(
           children: [
             TextField(
-              controller: _nameController,
+              controller: _codProduto,
               decoration: const InputDecoration(labelText: 'Full name'),
               style: const TextStyle(fontSize: 24.0),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: TextField(
-                controller: _accountNumberController,
+                controller: _descProduto,
+                decoration: const InputDecoration(labelText: 'Account Number'),
+                style: const TextStyle(fontSize: 24.0),
+              ),
+            ),Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: TextField(
+                controller: _qdtProduto,
                 decoration: const InputDecoration(labelText: 'Account Number'),
                 style: const TextStyle(fontSize: 24.0),
                 keyboardType: TextInputType.number,
@@ -45,10 +51,9 @@ class _ContactFormState extends State<ContactForm> {
                 width: double.maxFinite,
                 child: ElevatedButton(
                   onPressed: () {
-                    final String name = _nameController.text;
-                    final int? accountNumber =
-                    int.tryParse(_accountNumberController.text);
-                    final Contact newContact = Contact(name, accountNumber!);
+                    final String codigo = _codProduto.text;
+                    final String descricao = _descProduto.text;
+                    final Contact newContact = Contact(codigo, descricao);
                     Navigator.pop(context, newContact);
                   },
                   child: const Text('Create'),
