@@ -1,14 +1,14 @@
-class Contact {
-  final String name;
-  final int accountNumber;
+class Produto {
+  final String codProduto;
+  final String descProduto;
+  final int qdtProduto;
+  final String localProduto;
 
-  Contact(
-      this.name,
-      this.accountNumber,
-      );
+  Produto(
+      this.codProduto, this.descProduto, this.qdtProduto, this.localProduto);
 
   @override
   String toString() {
-    return 'Contact{name: $name, accountNumber: $accountNumber}';
+    return 'Produto{codProduto: $codProduto, descProduto: $descProduto, qdtProduto: $qdtProduto, localProduto: $localProduto}';
   }
 }

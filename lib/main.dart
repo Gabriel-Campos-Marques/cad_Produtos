@@ -1,3 +1,4 @@
+import 'package:cad_produtos/screens/contactList_form.dart';
 import 'package:cad_produtos/screens/contact_form.dart';
 import 'package:flutter/material.dart';
 
@@ -13,15 +14,15 @@ class cadProduto extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          primaryColor: Colors.green[900],
-          appBarTheme: AppBarTheme(color: Colors.green[900]),
+          primaryColor: Colors.blueAccent[900],
+          appBarTheme: AppBarTheme(color: Colors.blueAccent[900]),
           colorScheme: ColorScheme.fromSwatch()
-              .copyWith(secondary: Colors.blueAccent[700]),
+              .copyWith(secondary: Colors.blue[700]),
           buttonTheme: ButtonThemeData(
             buttonColor: Colors.blueAccent[700],
             textTheme: ButtonTextTheme.primary,
           )),
-      home: const ContactForm(),
+      home: const prodList(),
     );
   }
 }
