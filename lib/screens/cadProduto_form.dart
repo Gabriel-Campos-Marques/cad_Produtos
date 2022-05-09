@@ -91,7 +91,8 @@ class _cadProdutoFormState extends State<cadProdutoForm> {
                   onChanged: (value) => setState(() {
                     localizacaoProduto = value;
                   }),
-                  value: localizacaoProduto,
+                  value:
+                      (localizacaoProduto!.isEmpty) ? null : localizacaoProduto,
                   hint: const Text('Localização'),
                   style: const TextStyle(fontSize: 24.0, color: Colors.black),
                   icon: const Icon(Icons.add_location_alt),
