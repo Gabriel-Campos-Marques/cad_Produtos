@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'cadProduto_form.dart';
 
 // ignore: camel_case_types
-class prodList extends StatelessWidget {
+class prodList extends StatefulWidget {
   const prodList({Key? key}) : super(key: key);
 
+  @override
+  State<prodList> createState() => _prodListState();
+}
+
+// ignore: camel_case_types
+class _prodListState extends State<prodList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,20 +18,7 @@ class prodList extends StatelessWidget {
         title: const Text('Produtos'),
       ),
       body: ListView(
-        children: const [
-          Card(
-            child: ListTile(
-              title: Text(
-                'Gabriel',
-                style: TextStyle(fontSize: 24.0),
-              ),
-              subtitle: Text(
-                '1000',
-                style: TextStyle(fontSize: 16.0),
-              ),
-            ),
-          )
-        ],
+
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

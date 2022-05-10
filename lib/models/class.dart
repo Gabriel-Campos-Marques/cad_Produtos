@@ -2,7 +2,7 @@ class Produto {
   final String codProduto;
   final String descProduto;
   final int qdtProduto;
-  final String localProduto;
+  final String? localProduto;
 
   Produto(
       this.codProduto, this.descProduto, this.qdtProduto, this.localProduto);

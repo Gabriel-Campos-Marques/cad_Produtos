@@ -6,12 +6,14 @@ class cadProdutoForm extends StatefulWidget {
   const cadProdutoForm({Key? key}) : super(key: key);
 
   @override
-  State<cadProdutoForm> createState() => _cadProdutoFormState();
+  State<cadProdutoForm> createState() {
+    return cadProdutoFormState();
+  }
 }
 
 // ignore: camel_case_types
-class _cadProdutoFormState extends State<cadProdutoForm> {
-  final List<String> localizacoes = [
+class cadProdutoFormState extends State<cadProdutoForm> {
+  List<String> localizacoes = [
     'Almoxarifado',
     'Montagem',
     'Rejeitados',
@@ -69,7 +71,11 @@ class _cadProdutoFormState extends State<cadProdutoForm> {
               padding: const EdgeInsets.only(top: 8.0),
               child: SizedBox(
                 width: double.maxFinite,
-                child: DropdownButton<String>(
+                child: DropdownButtonFormField<String>(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(6),
+                  )),
                   items: [
                     DropdownMenuItem(
                       child: Text(localizacoes[0]),
@@ -88,11 +94,10 @@ class _cadProdutoFormState extends State<cadProdutoForm> {
                       value: localizacoes[3],
                     )
                   ],
+
                   onChanged: (value) => setState(() {
                     localizacaoProduto = value;
                   }),
-                  value:
-                      (localizacaoProduto!.isEmpty) ? null : localizacaoProduto,
                   hint: const Text('Localização'),
                   style: const TextStyle(fontSize: 24.0, color: Colors.black),
                   icon: const Icon(Icons.add_location_alt),
@@ -113,7 +118,10 @@ class _cadProdutoFormState extends State<cadProdutoForm> {
                         Produto(codigo, descricao, quantidade!, localizado);
                     Navigator.pop(context, newProduto);
                   },
-                  child: const Text('Create'),
+                  child: const Text(
+                    'Adicionar Produto',
+                    style: TextStyle(fontSize: 16),
+                  ),
                 ),
               ),
             ),
@@ -125,7 +133,10 @@ class _cadProdutoFormState extends State<cadProdutoForm> {
                   onPressed: () {
                     limpaCampos();
                   },
-                  child: const Text('Limpar'),
+                  child: const Text(
+                    'Limpar',
+                    style: TextStyle(fontSize: 16),
+                  ),
                 ),
               ),
             )
