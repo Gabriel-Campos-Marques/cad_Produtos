@@ -30,6 +30,7 @@ class cadProdutoFormState extends State<cadProdutoForm> {
     _codProduto.clear();
     _descProduto.clear();
     _qdtProduto.clear();
+    localizacaoProduto = null;
   }
 
   @override

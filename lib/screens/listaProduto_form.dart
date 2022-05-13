@@ -17,18 +17,16 @@ class _prodListState extends State<prodList> {
       appBar: AppBar(
         title: const Text('Produtos'),
       ),
-      body: ListView(
-
-      ),
+      body: ListView(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context)
               .push(
-            MaterialPageRoute(builder: (context) => const cadProdutoForm()),
-          )
+                MaterialPageRoute(builder: (context) => const cadProdutoForm()),
+              )
               .then(
                 (newProduto) => debugPrint(newProduto.toString()),
-          );
+              );
         },
         child: const Icon(Icons.add),
       ),
