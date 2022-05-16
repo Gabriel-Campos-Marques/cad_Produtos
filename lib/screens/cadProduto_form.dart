@@ -19,18 +19,23 @@ class cadProdutoFormState extends State<cadProdutoForm> {
     'Rejeitados',
     'Acabados'
   ];
+  List<String> unidades = [
+    'Kg',
+    'unid.',
+    'pc.',
+  ];
 
   final TextEditingController _codProduto = TextEditingController();
   final TextEditingController _descProduto = TextEditingController();
   final TextEditingController _qdtProduto = TextEditingController();
 
   String? localizacaoProduto;
+  String? unidadeMedida;
 
   void limpaCampos() {
     _codProduto.clear();
     _descProduto.clear();
     _qdtProduto.clear();
-    localizacaoProduto = null;
   }
 
   @override
@@ -79,6 +84,38 @@ class cadProdutoFormState extends State<cadProdutoForm> {
                   )),
                   items: [
                     DropdownMenuItem(
+                      child: Text(unidades[0]),
+                      value: unidades[0],
+                    ),
+                    DropdownMenuItem(
+                      child: Text(unidades[1]),
+                      value: unidades[1],
+                    ),
+                    DropdownMenuItem(
+                      child: Text(unidades[2]),
+                      value: unidades[2],
+                    )
+                  ],
+
+                  onChanged: (value) => setState(() {
+                    unidadeMedida = value;
+                  }),
+                  hint: const Text('Unidade'),
+                  style: const TextStyle(fontSize: 24.0, color: Colors.black),
+                  icon: const Icon(Icons.arrow_drop_down),
+                ),
+              ),
+            ),Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: SizedBox(
+                width: double.maxFinite,
+                child: DropdownButtonFormField<String>(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(6),
+                  )),
+                  items: [
+                    DropdownMenuItem(
                       child: Text(localizacoes[0]),
                       value: localizacoes[0],
                     ),
@@ -114,9 +151,10 @@ class cadProdutoFormState extends State<cadProdutoForm> {
                     final String codigo = _codProduto.text;
                     final String descricao = _descProduto.text;
                     final int? quantidade = int.tryParse(_qdtProduto.text);
+                    final String unidadeProduto = unidadeMedida.toString();
                     final String localizado = localizacaoProduto.toString();
                     final Produto newProduto =
-                        Produto(codigo, descricao, quantidade!, localizado);
+                        Produto(codigo, descricao, quantidade!, localizado, unidadeProduto);
                     Navigator.pop(context, newProduto);
                   },
                   child: const Text(
