@@ -96,7 +96,6 @@ class cadProdutoFormState extends State<cadProdutoForm> {
                       value: unidades[2],
                     )
                   ],
-
                   onChanged: (value) => setState(() {
                     unidadeMedida = value;
                   }),
@@ -105,7 +104,8 @@ class cadProdutoFormState extends State<cadProdutoForm> {
                   icon: const Icon(Icons.arrow_drop_down),
                 ),
               ),
-            ),Padding(
+            ),
+            Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: SizedBox(
                 width: double.maxFinite,
@@ -132,7 +132,6 @@ class cadProdutoFormState extends State<cadProdutoForm> {
                       value: localizacoes[3],
                     )
                   ],
-
                   onChanged: (value) => setState(() {
                     localizacaoProduto = value;
                   }),
@@ -153,8 +152,8 @@ class cadProdutoFormState extends State<cadProdutoForm> {
                     final int? quantidade = int.tryParse(_qdtProduto.text);
                     final String unidadeProduto = unidadeMedida.toString();
                     final String localizado = localizacaoProduto.toString();
-                    final Produto newProduto =
-                        Produto(codigo, descricao, quantidade!, localizado, unidadeProduto);
+                    final Produto newProduto = Produto(codigo, descricao,
+                        quantidade!, localizado, unidadeProduto);
                     Navigator.pop(context, newProduto);
                   },
                   child: const Text(
